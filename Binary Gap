@@ -1,0 +1,19 @@
+# A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.
+# Given an integer N return the biggest binary gap
+
+def solution(N):
+    #turn integer into binary string
+    b="{0:b}".format(N)
+    cnt=0
+    ls=[]
+    
+    #cnt counts binary gap
+    #ls is a list of the lengths of binary gaps
+    for i in range(0, len(b)):
+        if b[i]=='0':
+            cnt+=1
+        else:
+            ls.append(cnt)
+            cnt=0
+    
+    return max(ls)
